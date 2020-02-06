@@ -11,11 +11,16 @@ export default {
     title: "",
     markdownComponent: null
   }),
-  async asyncData({ params }) {},
+  async asyncData({ params }) {
+    const post = await import(`~/blog/posts/${params.slug}.md`);
+    return {
+      title: post.attributes.title
+    };
+  },
   async created() {
     this.markdownComponent = () =>
       import(`~/blog/posts/${this.$route.params.slug}.md`).then(post => {
-        this.title = post.attributes.title;
+        // this.title = post.attributes.title;
         return {
           extends: post.vue.component
         };

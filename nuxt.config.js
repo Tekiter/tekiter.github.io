@@ -1,6 +1,9 @@
 const path = require("path");
 const glob = require("glob");
+
 const Mode = require("frontmatter-markdown-loader/mode");
+const hljs = require("highlight.js");
+
 const categories = require("./blog/categories").default;
 
 async function getDynamicPaths(urlFilepathTable) {
@@ -27,6 +30,11 @@ export default async () => ({
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+
+  css: [
+    { src: "~/node_modules/highlight.js/styles/atom-one-dark.css", lang: "css" }
+  ],
+
   /*
    ** Customize the progress bar color
    */
@@ -48,12 +56,24 @@ export default async () => ({
         });
       }
 
+      // 마크다운 로더 세팅
       config.module.rules.push({
         test: /\.md$/,
         include: path.resolve(__dirname, "blog/posts"),
         loader: "frontmatter-markdown-loader",
         options: {
-          mode: [Mode.VUE_COMPONENT, Mode.META]
+          mode: [Mode.VUE_COMPONENT, Mode.META],
+          markdownIt: {
+            highlight: function(str, lang) {
+              if (lang && hljs.getLanguage(lang)) {
+                try {
+                  return hljs.highlight(lang, str).value;
+                } catch (__) {}
+              }
+
+              return ""; // use external default escaping
+            }
+          }
         }
       });
     }
