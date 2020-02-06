@@ -8,7 +8,7 @@ async function getDynamicPaths(urlFilepathTable) {
     ...Object.keys(urlFilepathTable).map(url => {
       let filepathGlob = urlFilepathTable[url];
       return glob
-        .sync(filepathGlob, { cwd: "content" })
+        .sync(filepathGlob)
         .map(filepath => `${url}/${path.basename(filepath, ".md")}`);
     })
   );
@@ -62,7 +62,7 @@ export default async () => ({
   generate: {
     routes: [
       ...(await getDynamicPaths({
-        "/blog/posts": "blog/posts/*.md"
+        "/blog/posts": "./blog/posts/*.md"
       })),
       ...categories.map(category => {
         return `/blog/category/${category.name}`;
