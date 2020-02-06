@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <h1>
       카테고리
     </h1>
@@ -14,7 +14,7 @@
         </v-list-item>
       </v-list>
     </v-card>
-  </div>
+  </v-container>
 </template>
 <script>
 import categories from "~/blog/categories";
@@ -59,7 +59,10 @@ export default {
           count: 0
         };
       }
-      cate[category.name].count += 1;
+      const filtered = posts.filter(post => {
+        return post.category == category.name;
+      });
+      cate[category.name].count += filtered.length;
     }
 
     return {

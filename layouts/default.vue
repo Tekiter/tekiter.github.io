@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app clipped-left flat color="primary" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="isMobile()" />
-      <v-btn text large @click="$router.push('/')">
+      <v-btn text large href="/">
         <v-toolbar-title>Tekiter</v-toolbar-title>
       </v-btn>
       <v-spacer></v-spacer>
