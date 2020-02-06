@@ -9,11 +9,8 @@
       <v-btn text large to="/blog" dark>
         블로그
       </v-btn>
-      <v-btn icon href="https://github.com/Tekiter" target="_blank">
-        <v-icon>
-          fas fa-ad
-        </v-icon>
-        <i class="fas fa-ad"></i>
+      <v-btn text href="https://github.com/Tekiter" target="_blank">
+        github
       </v-btn>
     </v-app-bar>
 
