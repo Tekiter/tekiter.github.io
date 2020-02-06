@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <v-navigation-drawer v-model="drawer" app clipped></v-navigation-drawer> -->
     <h1>{{ category.name }}</h1>
     <v-card outlined>
       <v-list>

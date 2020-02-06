@@ -18,6 +18,7 @@
           class="button--grey"
           >GitHub</a
         >
+        <i class="fas fa-adobe"></i>
       </div>
     </div>
   </section>

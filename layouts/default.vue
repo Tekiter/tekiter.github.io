@@ -9,9 +9,15 @@
       <v-btn text large to="/blog" dark>
         블로그
       </v-btn>
+      <v-btn icon href="https://github.com/Tekiter" target="_blank">
+        <v-icon>
+          fas fa-ad
+        </v-icon>
+        <i class="fas fa-ad"></i>
+      </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app clipped></v-navigation-drawer>
+    <!-- <v-navigation-drawer v-model="drawer" app clipped></v-navigation-drawer> -->
     <v-content>
       <v-container fluid>
         <nuxt />
