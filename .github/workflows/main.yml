@@ -22,6 +22,7 @@ jobs:
 
     - name: yarn install, yarn lint, yarn test, yarn build
       run: |
+        ls -al
         yarn install
         yarn generate
         yarn deploy
