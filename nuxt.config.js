@@ -69,9 +69,5 @@ export default async () => ({
       })
     ]
   },
-
-  buildModules: [
-    // Simple usage
-    "@nuxtjs/vuetify"
-  ]
+  plugins: ["@plugins/vuetify"]
 });
