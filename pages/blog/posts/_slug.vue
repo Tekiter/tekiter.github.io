@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1>Create a frontmatter Markdown powered Blog with Nuxt.JS</h1>
-    {{ title }}
+  <v-container>
+    <h1>{{ title }}</h1>
+    <v-divider></v-divider>
     <component :is="markdownComponent" />
-  </div>
+  </v-container>
 </template>
 <script>
 export default {

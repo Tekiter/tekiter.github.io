@@ -1,6 +1,7 @@
 const path = require("path");
 const glob = require("glob");
 const Mode = require("frontmatter-markdown-loader/mode");
+const categories = require("./blog/categories").default;
 
 async function getDynamicPaths(urlFilepathTable) {
   return [].concat(
@@ -59,9 +60,14 @@ export default async () => ({
   },
 
   generate: {
-    routes: await getDynamicPaths({
-      "/blog/posts": "blog/posts/*.md"
-    })
+    routes: [
+      ...(await getDynamicPaths({
+        "/blog/posts": "blog/posts/*.md"
+      })),
+      ...categories.map(category => {
+        return `/blog/category/${category.name}`;
+      })
+    ]
   },
 
   buildModules: [

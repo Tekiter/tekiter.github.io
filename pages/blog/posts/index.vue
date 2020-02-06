@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>My blog posts</h1>
+    <h1>전체글보기</h1>
     <ul>
       <li v-for="post in posts" :key="post.title">
         {{ post }}
@@ -11,8 +11,8 @@
 </template>
 <script>
 export default {
-  async asyncData() {
-    const resolve = require.context("~/blog/posts/", true, /\.md$/);
+  async asyncData({ params }) {
+    const resolve = require.context(`~/blog/posts/`, true, /\.md$/);
     const imports = resolve.keys().map(key => {
       const [, name] = key.match(/\/(.+)\.md$/);
 
@@ -20,7 +20,8 @@ export default {
 
       return {
         name,
-        title: post.attributes.title
+        title: post.attributes.title,
+        category: post.attributes.category
       };
     });
     return {
@@ -32,17 +33,6 @@ export default {
       prefix: "blog/posts"
     };
   },
-  methods: {
-    getPermalink(post) {
-      return `${this.prefix}/${
-        post.meta.resourcePath
-          .split("\\")
-          .pop()
-          .split("/")
-          .pop()
-          .split(".")[0]
-      }`;
-    }
-  }
+  methods: {}
 };
 </script>
