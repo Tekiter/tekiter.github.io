@@ -6,17 +6,31 @@ import styles from "../styles/Home.module.scss";
 
 gsap.registerPlugin(TextPlugin);
 
-function MainText() {
-  const ref = useRef(null);
+function HelloTekiterWorld() {
+  const tekiterRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.from(ref.current, {y: "+=300", autoAlpha: 0, duration: 1});
-    tl.to(ref.current, {duration:1, text: "Hello,", ease: "none"});
-    tl.to(ref.current, {duration:1, text: "Hello, Tekiter world!", ease: "none"});
+    tl.from(titleRef.current, { y: "+=300", autoAlpha: 0, duration: 1 });
+    tl.to(
+      tekiterRef.current,
+      {
+        duration: 0.5,
+        text: " Tekiter",
+        ease: "none",
+      },
+      ">0.5"
+    );
   }, []);
 
-  return <h1 ref={ref} className={styles.title}>Hello, world!</h1>;
+  return (
+    <h1 className={styles.title} ref={titleRef}>
+      <span>Hello,</span>
+      <span ref={tekiterRef} className={styles["title-tekiter"]}></span>
+      <span> world!</span>
+    </h1>
+  );
 }
 
 export default function Home() {
@@ -28,8 +42,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <MainText />
-        <div className={styles.grid}></div>
+        <HelloTekiterWorld />
       </main>
     </div>
   );
