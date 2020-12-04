@@ -1,0 +1,20 @@
+.iconButton {
+  width: 2rem;
+  height: 2rem;
+
+  border-width: 0;
+  border-radius: 100%;
+  padding: 0.6em;
+
+  outline: none;
+
+  background-color: rgb(235, 235, 235);
+
+  &:hover {
+    background-color: rgb(206, 206, 206);
+  }
+
+  &:active {
+    background-color: rgb(167, 167, 167);
+  }
+}

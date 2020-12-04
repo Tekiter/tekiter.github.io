@@ -4,8 +4,17 @@
   font-size: 3rem;
   visibility: hidden;
   text-align: center;
+
+  .tekiter {
+    color: #005cab;
+  }
 }
 
-.title .tekiter {
-  color: #005cab;
+.links {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 0.5rem;
+
+  visibility: hidden;
 }
