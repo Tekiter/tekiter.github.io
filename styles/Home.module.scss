@@ -1,9 +1,15 @@
+@use 'utils/screen';
+
 .container {
   margin-top: 30vh;
 }
 
 .main {
-  padding: 0 8rem;
+  padding: 0 4rem;
+
+  @include screen.xs {
+    padding: 0 1rem;
+  }
 }
 
 .title {
