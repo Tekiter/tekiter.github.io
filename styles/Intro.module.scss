@@ -14,7 +14,37 @@
   display: flex;
   justify-content: center;
 
-  margin-top: 0.5rem;
-
   visibility: hidden;
+}
+
+@mixin buttonColor($color) {
+  background-color: $color;
+
+  &:hover {
+    background-color: lighten($color, 20);
+  }
+}
+
+@mixin roundLinkButton {
+  border-radius: 0.3em !important;
+}
+
+.linkButton {
+  @include roundLinkButton();
+
+  &:not(:first-child) {
+    margin-left: 0.7em;
+  }
+}
+
+.githubButton {
+  @extend .linkButton;
+  @include buttonColor(black);
+
+  color: white;
+}
+
+.solvedACButton {
+  @extend .linkButton;
+  @include buttonColor(black);
 }

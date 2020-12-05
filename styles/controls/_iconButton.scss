@@ -1,0 +1,42 @@
+@mixin iconButton {
+  border-width: 0;
+  border-radius: 0%;
+  padding: 0.4em;
+  outline: none;
+  line-height: 1.75;
+  cursor: pointer;
+  user-select: none;
+
+  display: inline-flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  &:hover {
+    transition: {
+      property: background-color;
+      duration: 500ms, 500ms;
+    }
+  }
+
+  .icon {
+    display: inherit;
+    margin-right: 8px;
+  }
+
+  .label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+
+  .label svg,
+  .label img {
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5em;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+}

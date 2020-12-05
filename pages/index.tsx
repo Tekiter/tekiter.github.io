@@ -7,6 +7,7 @@ import {
   HelloTekiterWorldRef,
   TekiterLinks,
 } from "../components/intro";
+import { Spacer } from "../components/utils";
 import styles from "../styles/Home.module.scss";
 
 gsap.registerPlugin(TextPlugin);
@@ -30,6 +31,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <HelloTekiterWorld ref={titleRef} />
+        <Spacer size="8rem" />
         <TekiterLinks ref={linkRef} />
       </main>
     </div>

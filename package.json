@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "clsx": "^1.1.1",
     "gsap": "^3.5.1",
     "next": "10.0.3",
     "react": "17.0.1",
