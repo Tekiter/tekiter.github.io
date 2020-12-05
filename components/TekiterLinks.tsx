@@ -1,11 +1,7 @@
 import gsap from "gsap";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import styles from "../styles/Intro.module.scss";
+import styles from "../styles/TekiterLinks.module.scss";
 import { IconButton } from "./IconButton";
-
-export interface HelloTekiterWorldRef {
-  timeline: () => GSAPTimeline;
-}
 
 function GithubIcon() {
   return (
@@ -32,37 +28,19 @@ function SolvedACIcon() {
   return <img src="https://solved.ac/res/logo-whitetext.svg" />;
 }
 
-export const HelloTekiterWorld = forwardRef<HelloTekiterWorldRef, {}>(
-  (_, ref) => {
-    const tekiterRef = useRef(null);
-    const titleRef = useRef(null);
-
-    useImperativeHandle(ref, () => ({
-      timeline() {
-        const tl = gsap.timeline();
-        tl.from(titleRef.current, { y: "+=300", autoAlpha: 0, duration: 1 });
-        tl.to(
-          tekiterRef.current,
-          {
-            duration: 0.5,
-            text: " Tekiter",
-            ease: "none",
-          },
-          ">0.5"
-        );
-        return tl;
-      },
-    }));
-
-    return (
-      <h1 className={styles.title} ref={titleRef}>
-        <span>Hello,</span>
-        <span ref={tekiterRef} className={styles.tekiter}></span>
-        <span> world!</span>
-      </h1>
-    );
-  }
-);
+function TistoryIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 408">
+      <g>
+        <circle cx="58.18" cy="58.18" r="58.18" />
+        <circle cx="204.2" cy="58.18" r="58.18" />
+        <circle cx="204.2" cy="204.2" r="58.18" />
+        <circle cx="204.2" cy="350.22" r="58.18" />
+        <circle cx="350.22" cy="58.18" r="58.18" />
+      </g>
+    </svg>
+  );
+}
 
 export const TekiterLinks = forwardRef((_, ref) => {
   const boxRef = useRef(null);
@@ -77,6 +55,12 @@ export const TekiterLinks = forwardRef((_, ref) => {
 
   return (
     <div ref={boxRef} className={styles.links}>
+      <IconButton
+        href="https://tekiter.tistory.com"
+        className={styles.tistoryButton}
+      >
+        <TistoryIcon /> <span style={{ marginLeft: "0.5em" }}>Tech Blog</span>
+      </IconButton>
       <IconButton
         href="https://github.com/Tekiter"
         className={styles.githubButton}

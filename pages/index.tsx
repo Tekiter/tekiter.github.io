@@ -5,8 +5,8 @@ import { useEffect, useRef } from "react";
 import {
   HelloTekiterWorld,
   HelloTekiterWorldRef,
-  TekiterLinks,
-} from "../components/intro";
+} from "../components/Helloworld";
+import { TekiterLinks } from "../components/TekiterLinks";
 import { Spacer } from "../components/utils";
 import styles from "../styles/Home.module.scss";
 

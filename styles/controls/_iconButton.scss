@@ -12,11 +12,9 @@
 
   box-sizing: border-box;
 
-  &:hover {
-    transition: {
-      property: background-color;
-      duration: 500ms, 500ms;
-    }
+  transition: {
+    property: background-color, color;
+    duration: 500ms, 500ms;
   }
 
   .icon {

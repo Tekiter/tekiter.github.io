@@ -1,15 +1,3 @@
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 3rem;
-  visibility: hidden;
-  text-align: center;
-
-  .tekiter {
-    color: #005cab;
-  }
-}
-
 .links {
   display: flex;
   justify-content: center;
@@ -21,7 +9,9 @@
   background-color: $color;
 
   &:hover {
-    background-color: lighten($color, 20);
+    // background-color: lighten($color, 25);
+    background-color: lighten($color, 70);
+    color: black;
   }
 }
 
@@ -47,4 +37,10 @@
 .solvedACButton {
   @extend .linkButton;
   @include buttonColor(black);
+}
+
+.tistoryButton {
+  @extend .linkButton;
+  @include buttonColor(black);
+  color: white;
 }
