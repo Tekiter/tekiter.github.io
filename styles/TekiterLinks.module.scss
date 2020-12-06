@@ -1,3 +1,5 @@
+@use 'controls';
+
 .links {
   display: flex;
   justify-content: center;
@@ -21,6 +23,8 @@
 
 .linkButton {
   @include roundLinkButton();
+
+  font-size: 1.1rem;
 
   &:not(:first-child) {
     margin-left: 0.7em;
