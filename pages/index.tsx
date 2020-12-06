@@ -8,7 +8,7 @@ import {
 } from "../components/Helloworld";
 import { TekiterLinks } from "../components/TekiterLinks";
 import { Spacer } from "../components/utils";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/IndexPage.module.scss";
 
 gsap.registerPlugin(TextPlugin);
 

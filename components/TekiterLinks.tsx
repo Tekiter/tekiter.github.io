@@ -44,37 +44,53 @@ function TistoryIcon() {
 
 export const TekiterLinks = forwardRef((_, ref) => {
   const boxRef = useRef(null);
+  const linkRefs = useRef([]);
 
   useImperativeHandle(ref, () => ({
     timeline() {
       const tl = gsap.timeline();
       tl.from(boxRef.current, { autoAlpha: 0, duration: 1 });
+      tl.from(linkRefs.current, {
+        autoAlpha: 0,
+        duration: 1,
+        stagger: {
+          amount: 0.25,
+        },
+      });
       return tl;
     },
   }));
 
   return (
-    <div ref={boxRef} className={styles.links}>
-      <IconButton
-        href="https://tekiter.tistory.com"
-        className={styles.tistoryButton}
-      >
-        <TistoryIcon /> <span style={{ marginLeft: "0.5em" }}>Tech Blog</span>
-      </IconButton>
-      <IconButton
-        href="https://github.com/Tekiter"
-        className={styles.githubButton}
-        tooltip="Tekiter Github"
-      >
-        <GithubIcon />
-      </IconButton>
-      <IconButton
-        href="https://solved.ac/profile/geon08"
-        className={styles.solvedACButton}
-        tooltip="Tekiter solved.ac"
-      >
-        <SolvedACIcon />
-      </IconButton>
+    <div ref={boxRef} className={styles.box}>
+      <div className={styles.header}>
+        <h3>Other profiles</h3>
+      </div>
+      <div className={styles.links}>
+        <IconButton
+          ref={(r) => linkRefs.current.push(r)}
+          href="https://tekiter.tistory.com"
+          className={styles.tistoryButton}
+        >
+          <TistoryIcon /> <span style={{ marginLeft: "0.5em" }}>Tech Blog</span>
+        </IconButton>
+        <IconButton
+          ref={(r) => linkRefs.current.push(r)}
+          href="https://github.com/Tekiter"
+          className={styles.githubButton}
+          tooltip="Tekiter Github"
+        >
+          <GithubIcon />
+        </IconButton>
+        <IconButton
+          ref={(r) => linkRefs.current.push(r)}
+          href="https://solved.ac/profile/geon08"
+          className={styles.solvedACButton}
+          tooltip="Tekiter solved.ac"
+        >
+          <SolvedACIcon />
+        </IconButton>
+      </div>
     </div>
   );
 });

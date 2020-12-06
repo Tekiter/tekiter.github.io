@@ -1,10 +1,16 @@
 @use 'controls';
 
+.box {
+  visibility: hidden;
+}
+
 .links {
   display: flex;
   justify-content: center;
+}
 
-  visibility: hidden;
+.header {
+  text-align: center;
 }
 
 @mixin buttonColor($color) {
