@@ -1,6 +1,7 @@
 import gsap from "gsap";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { useRef } from "react";
 import styles from "../styles/TekiterLinks.module.scss";
+import { timelineFC, useTimeline } from "../utils/timeline";
 import { IconButton } from "./IconButton";
 
 function GithubIcon() {
@@ -42,11 +43,11 @@ function TistoryIcon() {
   );
 }
 
-export const TekiterLinks = forwardRef((_, ref) => {
+export const TekiterLinks = timelineFC((_, ref) => {
   const boxRef = useRef(null);
   const linkRefs = useRef([]);
 
-  useImperativeHandle(ref, () => ({
+  useTimeline(ref, () => ({
     timeline() {
       const tl = gsap.timeline();
       tl.from(boxRef.current, { autoAlpha: 0, duration: 1 });

@@ -1,17 +1,17 @@
 import gsap from "gsap";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import {  useRef } from "react";
 import styles from "../styles/Helloworld.module.scss";
-
+import {timelineFC, useTimeline} from '../utils/timeline'
 export interface HelloTekiterWorldRef {
   timeline: () => GSAPTimeline;
 }
 
-export const HelloTekiterWorld = forwardRef<HelloTekiterWorldRef, {}>(
+export const HelloTekiterWorld = timelineFC(
   (_, ref) => {
     const tekiterRef = useRef(null);
     const titleRef = useRef(null);
 
-    useImperativeHandle(ref, () => ({
+    useTimeline(ref, () => ({
       timeline() {
         const tl = gsap.timeline();
         tl.from(titleRef.current, { y: "+=300", autoAlpha: 0, duration: 1 });
