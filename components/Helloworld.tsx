@@ -12,24 +12,63 @@ function HeartIcon() {
   );
 }
 
-const loveThingList = [
+function randint(a: number, b: number) {
+  return Math.floor(Math.random() * (b - a + 1) + a);
+}
+
+interface loveThing {
+  name: string;
+}
+
+const loveThingList: loveThing[] = [
   {
-    name: "Hacking",
-  },
-  {
-    name: "Making things",
+    name: "Making New things",
   },
   {
     name: "Knowing New Things",
   },
+  {
+    name: "Design",
+  },
+  {
+    name: "Programming",
+  },
+  {
+    name: "Reversing",
+  },
+  {
+    name: "Web Hacking",
+  },
+  {
+    name: "Javascript",
+  },
+  {
+    name: "Typescript",
+  },
+  {
+    name: "Vue",
+  },
+  {
+    name: "React",
+  },
+  {
+    name: "Next.js",
+  },
+  {
+    name: "Vue.js",
+  },
 ];
+
+function pickOne<T>(arr: T[]): T {
+  return arr[randint(0, arr.length - 1)];
+}
 
 export const LoveThings = timelineFC((_, ref) => {
   const boxRef = useRef(null);
   const textRef = useRef(null);
 
-  const [curLove, setCurLove] = useState(0);
-  const curLoveRef = useRef(curLove);
+  const [curLove, setCurLove] = useState<loveThing>({ name: "" });
+  const curLoveRef = useRef<loveThing>(curLove);
   curLoveRef.current = curLove;
 
   const timerRef = useRef(null);
@@ -49,7 +88,9 @@ export const LoveThings = timelineFC((_, ref) => {
   }, [loopStart]);
 
   function loop() {
-    setCurLove((curLoveRef.current + 1) % loveThingList.length);
+    let pick: loveThing;
+    while ((pick = pickOne(loveThingList)).name == curLoveRef.current.name);
+    setCurLove(pick);
 
     timerRef.current = setTimeout(loop, 3000);
   }
@@ -58,7 +99,7 @@ export const LoveThings = timelineFC((_, ref) => {
     timeline() {
       const tl = gsap.timeline({
         onComplete: () => {
-          setTimeout(() => setLoopStart(true), 3000);
+          setTimeout(() => setLoopStart(true), 0);
         },
       });
 
@@ -70,15 +111,8 @@ export const LoveThings = timelineFC((_, ref) => {
   useEffect(() => {
     gsap
       .timeline({ defaults: { duration: 0.7 } })
-      .to(textRef.current, {
-        duration: 0,
-        text:
-          loveThingList[
-            (curLove - 1 + loveThingList.length) % loveThingList.length
-          ].name,
-      })
       .to(textRef.current, { text: "" })
-      .to(textRef.current, { text: loveThingList[curLove].name });
+      .to(textRef.current, { text: curLove.name });
     return () => {
       // gsap.to(textRef.current, { text: "" });
     };
@@ -89,7 +123,7 @@ export const LoveThings = timelineFC((_, ref) => {
       <span>
         I<HeartIcon />
       </span>
-      <span ref={textRef}>{loveThingList[curLove].name}</span>
+      <span ref={textRef}></span>
     </h3>
   );
 });
