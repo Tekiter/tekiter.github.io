@@ -1,7 +1,20 @@
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { timelineFC, useTimeline } from "../utils/timeline";
+import styles from "../styles/Profile.module.scss";
+
+const ProfileCard = () => {
+  return (
+    <Image
+      src="/profilepic.png"
+      alt="Profile Picture"
+      width="100"
+      height="100"
+    />
+  );
+};
 
 export const WhoAmISection = timelineFC((_, ref) => {
   const sectionRef = useRef(null);
@@ -31,8 +44,9 @@ export const WhoAmISection = timelineFC((_, ref) => {
   }));
 
   return (
-    <div ref={sectionRef} style={{ height: "100vh" }}>
-      This is Tekiter profile section
+    <div ref={sectionRef} className={styles.section}>
+      <h1>Profile</h1>
+      <ProfileCard />
     </div>
   );
 });

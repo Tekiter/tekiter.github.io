@@ -1,0 +1,15 @@
+@use '../utils/screen';
+
+@mixin section {
+  padding: {
+    left: 4rem;
+    right: 4rem;
+  }
+
+  @include screen.xs {
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
+  }
+}

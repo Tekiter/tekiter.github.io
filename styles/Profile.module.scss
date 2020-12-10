@@ -1,0 +1,15 @@
+@use 'controls';
+
+.section {
+  @include controls.section;
+
+  padding: {
+    top: 4rem;
+    bottom: 4rem;
+  }
+
+  min-height: 100vh;
+
+  background-color: #185f9c;
+  color: #ebebeb;
+}

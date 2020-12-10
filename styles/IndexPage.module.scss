@@ -4,11 +4,6 @@
 }
 
 .main {
-  padding: 0 4rem;
-
-  @include screen.xs {
-    padding: 0 1rem;
-  }
 }
 
 .title {
