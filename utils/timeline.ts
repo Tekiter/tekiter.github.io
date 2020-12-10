@@ -6,6 +6,7 @@ interface RefComponent {
 
 export interface TimelineFCRef {
   timeline: () => GSAPTimeline;
+  ref?: HTMLElement;
 }
 
 export const timelineFC = (component: RefComponent) => {

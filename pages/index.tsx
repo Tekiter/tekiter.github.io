@@ -1,23 +1,25 @@
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/dist/TextPlugin";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import { useEffect, useRef } from "react";
-import { HelloTekiterWorld } from "../components/Helloworld";
+import { HelloTekiterWorld, HelloworldSection } from "../components/Helloworld";
+import { WhoAmISection } from "../components/Profile";
 import { TekiterLinks } from "../components/TekiterLinks";
 import { Spacer } from "../components/utils";
 import styles from "../styles/IndexPage.module.scss";
 import { TimelineFCRef } from "../utils/timeline";
 
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 export default function Home() {
-  const titleRef = useRef<TimelineFCRef>(null);
-  const linkRef = useRef<TimelineFCRef>(null);
+  const sectionRefs = useRef<TimelineFCRef[]>([]);
 
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.add(titleRef.current.timeline());
-    tl.add(linkRef.current.timeline(), "+=0.2");
+    sectionRefs.current.forEach((section) => {
+      tl.add(section.timeline());
+    });
   }, []);
 
   return (
@@ -28,9 +30,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <HelloTekiterWorld ref={titleRef} />
-        <Spacer size="4rem" />
-        <TekiterLinks ref={linkRef} />
+        <HelloworldSection ref={(r) => sectionRefs.current.push(r)} />
+        <WhoAmISection ref={(r) => sectionRefs.current.push(r)} />
       </main>
     </div>
   );

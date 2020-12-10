@@ -1,7 +1,9 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/Helloworld.module.scss";
-import { timelineFC, useTimeline } from "../utils/timeline";
+import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
+import { TekiterLinks } from "./TekiterLinks";
 import { Spacer } from "./utils";
 
 function HeartIcon() {
@@ -160,6 +162,45 @@ export const HelloTekiterWorld = timelineFC((_, ref) => {
       </h1>
       <Spacer size="3rem" />
       <LoveThings ref={doThingsRef} />
+    </div>
+  );
+});
+
+export const HelloworldSection = timelineFC((_, ref) => {
+  const sectionRef = useRef(null);
+  const titleRef = useRef<TimelineFCRef>(null);
+  const linkRef = useRef<TimelineFCRef>(null);
+
+  useEffect(() => {
+    const st = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      pin: true,
+      pinSpacing: false,
+    });
+
+    return () => {
+      st.kill();
+    };
+  }, []);
+
+  useTimeline(ref, () => ({
+    timeline() {
+      const tl = gsap.timeline();
+      tl.add(titleRef.current.timeline());
+      tl.add(linkRef.current.timeline(), "+=0.2");
+      return tl;
+    },
+  }));
+
+  return (
+    <div ref={sectionRef}>
+      <div className={styles.section}>
+        <HelloTekiterWorld ref={titleRef} />
+        <Spacer size="4rem" />
+        <TekiterLinks ref={linkRef} />
+        <Spacer size="4rem" />
+      </div>
     </div>
   );
 });
