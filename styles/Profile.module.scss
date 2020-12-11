@@ -1,7 +1,7 @@
 @use 'controls';
 
-.section {
-  @include controls.section;
+.sectionOuter {
+  @include controls.sectionOuter;
 
   padding: {
     top: 4rem;
@@ -13,4 +13,8 @@
 
   background-color: #185f9c;
   color: #ebebeb;
+}
+
+.sectionInner {
+  @include controls.sectionInner;
 }

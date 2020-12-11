@@ -175,8 +175,8 @@ export const HelloworldSection = timelineFC((_, ref) => {
     const st = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      pin: true,
-      pinSpacing: false,
+      // pin: true,
+      // pinSpacing: false,
     });
 
     return () => {

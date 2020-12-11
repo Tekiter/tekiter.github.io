@@ -1,6 +1,14 @@
 @use '../utils/screen';
 
-@mixin section {
+@mixin sectionInner {
+  max-width: 1100px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin sectionOuter {
   padding: {
     left: 4rem;
     right: 4rem;

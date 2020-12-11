@@ -5,15 +5,22 @@ import { useEffect, useRef } from "react";
 import { timelineFC, useTimeline } from "../utils/timeline";
 import styles from "../styles/Profile.module.scss";
 
-const ProfileCard = () => {
+const ProfilePic = () => {
   return (
-    <Image
-      src="/profilepic.png"
-      alt="Profile Picture"
-      width="100"
-      height="100"
-    />
+    <div style={{ height: "10rem" }}>
+      <Image
+        src="/profilepic.png"
+        alt="Profile Picture"
+        layout="intrinsic"
+        width="100"
+        height="100"
+      />
+    </div>
   );
+};
+
+const ProfileCard = () => {
+  return <ProfilePic />;
 };
 
 export const WhoAmISection = timelineFC((_, ref) => {
@@ -25,8 +32,8 @@ export const WhoAmISection = timelineFC((_, ref) => {
     const st = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      pin: true,
-      pinSpacing: false,
+      // pin: true,
+      // pinSpacing: false,
     });
 
     return () => {
@@ -46,9 +53,11 @@ export const WhoAmISection = timelineFC((_, ref) => {
   }));
 
   return (
-    <div ref={sectionRef} className={styles.section}>
-      <h1>Profile</h1>
-      <ProfileCard />
+    <div ref={sectionRef} className={styles.sectionOuter}>
+      <div className={styles.sectionInner}>
+        <h1>Profile</h1>
+        <ProfileCard />
+      </div>
     </div>
   );
 });

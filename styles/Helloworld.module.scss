@@ -1,7 +1,7 @@
 @use 'controls';
 
 .section {
-  @include controls.section;
+  @include controls.sectionOuter;
 
   padding: {
     top: 8rem;

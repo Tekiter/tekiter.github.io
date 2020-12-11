@@ -18,8 +18,6 @@ interface SectionRefsDict {
 
 export default function Home() {
   const sectionRefs = useRef<SectionRefsDict>({});
-  // const helloworldSectionRef = useRef<TimelineFCRef>();
-  // const sectionRefs = useRef<{[key: string]:TimelineFCRef}>({});
 
   const mainRef = useRef();
   const spacerRef = useRef();
@@ -28,6 +26,7 @@ export default function Home() {
     const tl = gsap.timeline({
       defaults: {
         ease: "power2.out",
+        duration: 1,
       },
     });
     tl.set(spacerRef.current, { height: "100vh" });
@@ -35,6 +34,8 @@ export default function Home() {
     tl.to(mainRef.current, { css: { overflowY: "auto", height: "auto" } });
     tl.to(spacerRef.current, { height: "auto" }, "<");
     tl.add(sectionRefs.current.whoami.timeline(), "<");
+
+    return () => tl.kill();
   }, []);
 
   return (
