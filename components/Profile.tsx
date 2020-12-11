@@ -39,6 +39,8 @@ export const WhoAmISection = timelineFC((_, ref) => {
     timeline() {
       const tl = gsap.timeline();
 
+      tl.to(sectionRef.current, { autoAlpha: 1 });
+
       return tl;
     },
   }));

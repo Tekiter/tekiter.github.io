@@ -1,9 +1,8 @@
 @use 'utils/screen';
 
-.container {
-}
-
-.main {
+.blockScroll {
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 .title {
