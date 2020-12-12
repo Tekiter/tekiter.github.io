@@ -20,7 +20,6 @@ export default function Home() {
   const sectionRefs = useRef<SectionRefsDict>({});
 
   const mainRef = useRef();
-  const spacerRef = useRef();
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -29,11 +28,8 @@ export default function Home() {
         duration: 1,
       },
     });
-    tl.set(spacerRef.current, { height: "100vh" });
     tl.add(sectionRefs.current.helloworld.timeline());
-    tl.to(mainRef.current, { css: { overflowY: "auto", height: "auto" } });
-    tl.to(spacerRef.current, { height: "auto" }, "<");
-    tl.add(sectionRefs.current.whoami.timeline(), "<");
+    tl.set(mainRef.current, { css: { overflowY: "auto", height: "auto" } });
 
     return () => tl.kill();
   }, []);
@@ -46,11 +42,7 @@ export default function Home() {
       </Head>
 
       <main ref={mainRef} className={clsx(styles.main, styles.blockScroll)}>
-        <div ref={spacerRef}>
-          <HelloworldSection
-            ref={(r) => (sectionRefs.current.helloworld = r)}
-          />
-        </div>
+        <HelloworldSection ref={(r) => (sectionRefs.current.helloworld = r)} />
 
         <WhoAmISection ref={(r) => (sectionRefs.current.whoami = r)} />
       </main>

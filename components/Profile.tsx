@@ -32,7 +32,7 @@ export const WhoAmISection = timelineFC((_, ref) => {
     const st = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      // pin: true,
+      pin: true,
       // pinSpacing: false,
     });
 

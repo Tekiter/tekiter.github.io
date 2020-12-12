@@ -172,15 +172,20 @@ export const HelloworldSection = timelineFC((_, ref) => {
   const linkRef = useRef<TimelineFCRef>(null);
 
   useEffect(() => {
-    const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      // pin: true,
-      // pinSpacing: false,
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=70%",
+
+        scrub: 0.1,
+      },
     });
+    // tl.from(sectionRef.current, { opacity: 1 });
+    tl.to(sectionRef.current, { opacity: 0, ease: "power2.out" });
 
     return () => {
-      st.kill();
+      tl.kill();
     };
   }, []);
 
@@ -194,12 +199,11 @@ export const HelloworldSection = timelineFC((_, ref) => {
   }));
 
   return (
-    <div ref={sectionRef}>
-      <div className={styles.section}>
+    <div ref={sectionRef} className={styles.sectionOuter}>
+      <div className={styles.sectionInner}>
         <HelloTekiterWorld ref={titleRef} />
         <Spacer size="4rem" />
         <TekiterLinks ref={linkRef} />
-        <Spacer size="4rem" />
       </div>
     </div>
   );

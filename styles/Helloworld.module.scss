@@ -1,13 +1,24 @@
 @use 'controls';
 
-.section {
+.sectionOuter {
   @include controls.sectionOuter;
 
-  padding: {
-    top: 8rem;
-    bottom: 2rem;
-  }
+  // padding: {
+  //   top: 8rem;
+  //   bottom: 2rem;
+  // }
+  display: flex;
+  align-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
   background-color: #f1f1f1;
+}
+
+.sectionInner {
+  margin: auto;
+  padding: {
+    bottom: 5rem;
+  }
 }
 
 .title {
