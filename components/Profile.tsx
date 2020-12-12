@@ -33,7 +33,7 @@ export const WhoAmISection = timelineFC((_, ref) => {
       trigger: sectionRef.current,
       start: "top top",
       pin: true,
-      // pinSpacing: false,
+      pinSpacing: false,
     });
 
     return () => {
