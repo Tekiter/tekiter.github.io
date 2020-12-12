@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { loveThing, loveThingList } from "../data/loveThings";
 import styles from "../styles/Helloworld.module.scss";
 import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
 import { TekiterLinks } from "./TekiterLinks";
@@ -17,49 +18,6 @@ function HeartIcon() {
 function randint(a: number, b: number) {
   return Math.floor(Math.random() * (b - a + 1) + a);
 }
-
-interface loveThing {
-  name: string;
-}
-
-const loveThingList: loveThing[] = [
-  {
-    name: "Making New things",
-  },
-  {
-    name: "Knowing New Things",
-  },
-  {
-    name: "Design",
-  },
-  {
-    name: "Programming",
-  },
-  {
-    name: "Reversing",
-  },
-  {
-    name: "Web Hacking",
-  },
-  {
-    name: "Javascript",
-  },
-  {
-    name: "Typescript",
-  },
-  {
-    name: "Vue",
-  },
-  {
-    name: "React",
-  },
-  {
-    name: "Next.js",
-  },
-  {
-    name: "Vue.js",
-  },
-];
 
 function pickOne<T>(arr: T[]): T {
   return arr[randint(0, arr.length - 1)];
