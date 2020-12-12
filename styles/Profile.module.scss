@@ -1,4 +1,5 @@
 @use 'controls';
+@use 'utils/animation';
 
 .sectionOuter {
   @include controls.sectionOuter;
@@ -16,4 +17,51 @@
 
 .sectionInner {
   @include controls.sectionInner;
+
+  h1 {
+    text-align: center;
+
+    &::before {
+      content: "-";
+      margin-right: 0.3em;
+      display: inline-block;
+      animation: bounceLeft ease 1.5s infinite;
+    }
+    &::after {
+      content: "-";
+      margin-left: 0.3em;
+      display: inline-block;
+      animation: bounceRight ease 1.5s infinite;
+    }
+  }
+}
+
+$bounce_length: 0.2em;
+
+@include animation.keyframe("bounceLeft") {
+  0% {
+    transform: translate(-$bounce_length, 0);
+  }
+
+  50% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-$bounce_length, 0);
+  }
+}
+
+@include animation.keyframe("bounceRight") {
+  0% {
+    transform: translate($bounce_length, 0);
+  }
+
+  50% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate($bounce_length, 0);
+  }
 }
