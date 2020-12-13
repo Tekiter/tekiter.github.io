@@ -8,13 +8,10 @@ import * as profile from "../data/profile";
 
 const ProfilePic = (props: { className?: string }) => {
   return (
-    <Image
+    <img
       src="/profilepic.png"
       alt="Profile Picture"
-      layout="responsive"
-      width="100"
-      height="100"
-      className={props.className}
+      style={{ height: "100%", width: "100%" }}
     />
   );
 };
@@ -29,11 +26,12 @@ const ProfileCard = timelineFC((props: ProfileCardProps, ref) => {
   const cardRef = useRef(null);
 
   useTimeline(ref, () => ({
+    ref: cardRef.current,
     timeline() {
       const tl = gsap.timeline();
 
       tl.set(cardRef.current, { opacity: 0 });
-      tl.to(cardRef.current, { opacity: 1 }, "+=50%");
+      tl.to(cardRef.current, { opacity: 1, ease: "power4.in" });
 
       return tl;
     },
@@ -70,24 +68,53 @@ export const WhoAmISection = timelineFC((_, ref) => {
       },
     });
 
-    const entertl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "+=100%",
-        scrub: 0.1,
-      },
-    });
-    entertl.set(titleRef.current, { text: "" });
-    entertl.to(titleRef.current, {
-      text: "Profile",
-    });
-    entertl.add(profileCardRef.current.timeline(), "<");
-    // tl.fromTo(titleRef.current, { opacity: 1 }, { opacity: 0.5 });
+    // const entertl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: sectionRef.current,
+    //     start: "top bottom",
+    //     end: "+=100%",
+    //     scrub: 0.1,
+    //   },
+    // });
+    // entertl.set(titleRef.current, { text: "" });
+    // entertl.to(titleRef.current, {
+    //   text: "Profile",
+    // });
+    // entertl.add(profileCardRef.current.timeline(), "<");
+
+    const sectionTitleAni = gsap.fromTo(
+      titleRef.current,
+      { text: "" },
+      {
+        text: "Profile",
+
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "+=100%",
+          scrub: 0.1,
+        },
+      }
+    );
+    const sectionProfileCardAni = gsap.fromTo(
+      profileCardRef.current.ref,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "+=100%",
+          scrub: 0.1,
+        },
+        ease: "power3.in",
+      }
+    );
 
     return () => {
       tl.kill();
-      entertl.kill();
+      sectionTitleAni.kill();
+      sectionProfileCardAni.kill();
     };
   }, []);
 
