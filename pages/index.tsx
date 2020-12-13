@@ -3,10 +3,10 @@ import { TextPlugin } from "gsap/dist/TextPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import { useEffect, useRef } from "react";
-import { HelloworldSection } from "../components/Helloworld";
-import { WhoAmISection } from "../components/Profile";
-import styles from "../styles/IndexPage.module.scss";
-import { TimelineFCRef } from "../utils/timeline";
+import { HelloworldSection } from "@/components/Helloworld";
+import { WhoAmISection } from "@/components/Profile";
+import styles from "@/styles/IndexPage.module.scss";
+import { TimelineFCRef } from "@/utils/timeline";
 import clsx from "clsx";
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger);

@@ -2,9 +2,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
-import styles from "../styles/Profile.module.scss";
-import * as profile from "../data/profile";
+import { timelineFC, TimelineFCRef, useTimeline } from "@/utils/timeline";
+import styles from "@/styles/Profile.module.scss";
+import * as profile from "@/data/profile";
 
 const ProfilePic = (props: { className?: string }) => {
   return (

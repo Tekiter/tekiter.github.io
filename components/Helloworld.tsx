@@ -8,10 +8,10 @@ import {
   useRef,
   useState,
 } from "react";
-import { loveThing, loveThingList } from "../data/loveThings";
-import * as profile from "../data/profile";
-import styles from "../styles/Helloworld.module.scss";
-import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
+import { loveThing, loveThingList } from "@/data/loveThings";
+import * as profile from "@/data/profile";
+import styles from "@/styles/Helloworld.module.scss";
+import { timelineFC, TimelineFCRef, useTimeline } from "@/utils/timeline";
 import { TekiterLinks } from "./TekiterLinks";
 import { Spacer } from "./utils";
 
