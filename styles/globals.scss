@@ -1,5 +1,9 @@
 @use 'utils/screen';
-@import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -36,6 +40,6 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+p {
+  font-weight: lighter;
 }

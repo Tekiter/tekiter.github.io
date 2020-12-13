@@ -2,45 +2,94 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { timelineFC, useTimeline } from "../utils/timeline";
+import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
 import styles from "../styles/Profile.module.scss";
+import * as profile from "../data/profile";
 
-const ProfilePic = () => {
+const ProfilePic = (props: { className?: string }) => {
   return (
-    <div style={{ height: "10rem" }}>
-      <Image
-        src="/profilepic.png"
-        alt="Profile Picture"
-        layout="intrinsic"
-        width="100"
-        height="100"
-      />
-    </div>
+    <Image
+      src="/profilepic.png"
+      alt="Profile Picture"
+      layout="responsive"
+      width="100"
+      height="100"
+      className={props.className}
+    />
   );
 };
 
-const ProfileCard = () => {
-  return <ProfilePic />;
-};
+interface ProfileCardProps {
+  name?: string;
+  realname?: string;
+  summary?: string;
+}
+
+const ProfileCard = timelineFC((props: ProfileCardProps, ref) => {
+  const cardRef = useRef(null);
+
+  useTimeline(ref, () => ({
+    timeline() {
+      const tl = gsap.timeline();
+
+      tl.set(cardRef.current, { opacity: 0 });
+      tl.to(cardRef.current, { opacity: 1 }, "+=50%");
+
+      return tl;
+    },
+  }));
+
+  return (
+    <div ref={cardRef} className={styles.profileCard}>
+      <div className={styles.profileCardPic}>
+        <ProfilePic />
+      </div>
+      <div className={styles.profileCardContent}>
+        <h2>{props.name}</h2>
+        <h3>{props.realname}</h3>
+        <p>{props.summary}</p>
+      </div>
+    </div>
+  );
+});
 
 export const WhoAmISection = timelineFC((_, ref) => {
   const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const profileCardRef = useRef<TimelineFCRef>(null);
 
   useEffect(() => {
-    const tl = gsap.timeline();
-
-    const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      pin: true,
-      pinSpacing: false,
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=300%",
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.1,
+      },
     });
+
+    const entertl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top bottom",
+        end: "+=100%",
+        scrub: 0.1,
+      },
+    });
+    entertl.set(titleRef.current, { text: "" });
+    entertl.to(titleRef.current, {
+      text: "Profile",
+    });
+    entertl.add(profileCardRef.current.timeline(), "<");
+    // tl.fromTo(titleRef.current, { opacity: 1 }, { opacity: 0.5 });
 
     return () => {
       tl.kill();
-      st.kill();
+      entertl.kill();
     };
-  });
+  }, []);
 
   useTimeline(ref, () => ({
     timeline() {
@@ -55,8 +104,13 @@ export const WhoAmISection = timelineFC((_, ref) => {
   return (
     <div ref={sectionRef} className={styles.sectionOuter}>
       <div className={styles.sectionInner}>
-        <h1>Profile</h1>
-        <ProfileCard />
+        <h1 ref={titleRef}></h1>
+        <ProfileCard
+          ref={profileCardRef}
+          name={profile.name}
+          realname={profile.realName}
+          summary={profile.summary}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 @use 'controls';
-@use 'utils/animation';
 
 .sectionOuter {
   @include controls.sectionOuter;
@@ -11,7 +10,7 @@
 
   min-height: 100vh;
 
-  background-color: #185f9c;
+  background-color: #174267;
   color: #ebebeb;
 }
 
@@ -19,49 +18,52 @@
   @include controls.sectionInner;
 
   h1 {
-    text-align: center;
-
-    &::before {
-      content: "-";
-      margin-right: 0.3em;
-      display: inline-block;
-      animation: bounceLeft ease 1.5s infinite;
-    }
-    &::after {
-      content: "-";
-      margin-left: 0.3em;
-      display: inline-block;
-      animation: bounceRight ease 1.5s infinite;
-    }
+    @include controls.sectionTitle;
   }
 }
 
-$bounce_length: 0.2em;
+.profileCard {
+  min-width: 10rem;
+  width: fit-content;
+  display: flex;
 
-@include animation.keyframe("bounceLeft") {
-  0% {
-    transform: translate(-$bounce_length, 0);
+  background-color: whitesmoke;
+
+  margin: {
+    left: auto;
+    right: auto;
   }
 
-  50% {
-    transform: translate(0, 0);
+  padding: 0.5rem 0.7rem;
+
+  border: {
+    color: grey;
+    width: 1px;
+    style: solid;
+    radius: 10px;
   }
 
-  100% {
-    transform: translate(-$bounce_length, 0);
+  & > div:not(:first-child) {
+    margin-left: 1rem;
   }
 }
 
-@include animation.keyframe("bounceRight") {
-  0% {
-    transform: translate($bounce_length, 0);
+.profileCardContent {
+  color: black;
+  h2 {
+    font-size: 1.3rem;
   }
 
-  50% {
-    transform: translate(0, 0);
+  h3 {
+    font-size: 1rem;
   }
 
-  100% {
-    transform: translate($bounce_length, 0);
+  p {
+    font-size: 0.8rem;
   }
+}
+
+.profileCardPic {
+  height: 4rem;
+  width: 4rem;
 }

@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import { loveThing, loveThingList } from "../data/loveThings";
+import * as profile from "../data/profile";
 import styles from "../styles/Helloworld.module.scss";
 import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
 import { TekiterLinks } from "./TekiterLinks";
@@ -126,7 +127,7 @@ export const HelloTekiterWorld = timelineFC((_, ref) => {
         tekiterRef.current,
         {
           duration: 0.5,
-          text: " Tekiter",
+          text: ` ${profile.name}`,
           ease: "none",
         },
         "+=0.2"
