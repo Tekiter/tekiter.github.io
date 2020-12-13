@@ -187,7 +187,7 @@ export const HelloworldSection = timelineFC((_, ref) => {
         },
       });
       tl.add(titleRef.current.timeline());
-      tl.add(linkRef.current.timeline(), "+=0.2");
+      tl.add(linkRef.current.timeline());
 
       return tl;
     },
