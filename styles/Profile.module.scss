@@ -1,0 +1,69 @@
+@use 'controls';
+
+.sectionOuter {
+  @include controls.sectionOuter;
+
+  padding: {
+    top: 4rem;
+    bottom: 4rem;
+  }
+
+  min-height: 100vh;
+
+  background-color: #174267;
+  color: #ebebeb;
+}
+
+.sectionInner {
+  @include controls.sectionInner;
+
+  h1 {
+    @include controls.sectionTitle;
+  }
+}
+
+.profileCard {
+  min-width: 10rem;
+  width: fit-content;
+  display: flex;
+
+  background-color: whitesmoke;
+
+  margin: {
+    left: auto;
+    right: auto;
+  }
+
+  padding: 0.5rem 0.7rem;
+
+  border: {
+    color: grey;
+    width: 1px;
+    style: solid;
+    radius: 10px;
+  }
+
+  & > div:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+.profileCardContent {
+  color: black;
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.profileCardPic {
+  height: 4rem;
+  width: 4rem;
+}

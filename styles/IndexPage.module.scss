@@ -1,15 +1,8 @@
 @use 'utils/screen';
 
-.container {
-  margin-top: 30vh;
-}
-
-.main {
-  padding: 0 4rem;
-
-  @include screen.xs {
-    padding: 0 1rem;
-  }
+.blockScroll {
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 .title {

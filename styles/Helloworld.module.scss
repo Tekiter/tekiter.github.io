@@ -1,3 +1,23 @@
+@use 'controls';
+
+.sectionOuter {
+  @include controls.sectionOuter;
+
+  // padding: {
+  //   top: 8rem;
+  //   bottom: 2rem;
+  // }
+  display: flex;
+  align-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.sectionInner {
+  margin: auto;
+}
+
 .title {
   margin: 0;
   line-height: 1.15;
@@ -30,5 +50,47 @@
 
   &:first-child {
     margin-right: 0.3em;
+  }
+}
+
+.scrolldownIcon {
+  $color: #8d8d8d;
+  $thickness: 15px;
+
+  margin-top: 3rem;
+
+  box-sizing: border-box;
+  text-align: center;
+
+  svg {
+    width: 2rem;
+
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 1.5;
+  }
+
+  .scrolldownWheel {
+    animation: scrolldown ease 1.5s infinite;
+    fill: none;
+    stroke: $color;
+    stroke-width: $thickness;
+  }
+
+  .scrolldownMouse {
+    fill: none;
+    stroke: $color;
+    stroke-width: $thickness;
+  }
+}
+
+@keyframes scrolldown {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(100px);
   }
 }
