@@ -61,10 +61,10 @@ export const WhoAmISection = timelineFC((_, ref) => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=300%",
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.1,
+        // end: "+=300%",
+        // pin: true,
+        // pinSpacing: true,
+        // scrub: 0.1,
       },
     });
 
@@ -98,16 +98,19 @@ export const WhoAmISection = timelineFC((_, ref) => {
     );
     const sectionProfileCardAni = gsap.fromTo(
       profileCardRef.current.ref,
-      { autoAlpha: 0 },
+      { autoAlpha: 0, y: "+=50" },
       {
         autoAlpha: 1,
+        y: "-=50",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom",
-          end: "+=100%",
-          scrub: 0.1,
+          start: "top center-=20%",
+          // end: "+=100%",
+          toggleActions: "restart none none reverse",
+          // scrub: 0.1,
         },
-        ease: "power3.in",
+        duration: 0.5,
+        // ease: "power3.in",
       }
     );
 
