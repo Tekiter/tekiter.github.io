@@ -68,20 +68,6 @@ export const WhoAmISection = timelineFC((_, ref) => {
       },
     });
 
-    // const entertl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: sectionRef.current,
-    //     start: "top bottom",
-    //     end: "+=100%",
-    //     scrub: 0.1,
-    //   },
-    // });
-    // entertl.set(titleRef.current, { text: "" });
-    // entertl.to(titleRef.current, {
-    //   text: "Profile",
-    // });
-    // entertl.add(profileCardRef.current.timeline(), "<");
-
     const sectionTitleAni = gsap.fromTo(
       titleRef.current,
       { text: "" },
@@ -103,14 +89,14 @@ export const WhoAmISection = timelineFC((_, ref) => {
         autoAlpha: 1,
         y: "-=50",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center-=20%",
-          // end: "+=100%",
+          trigger: profileCardRef.current.ref,
+          start: "top bottom-=20%",
+          markers: true,
           toggleActions: "restart none none reverse",
-          // scrub: 0.1,
         },
+
         duration: 0.5,
-        // ease: "power3.in",
+        ease: "power3.out",
       }
     );
 
