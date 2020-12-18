@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
-import styles from "../styles/IconButton.module.scss";
+import styles from "@/styles/IconButton.module.scss";
 
 export interface IconButtonProps {
   children: any;

@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { useRef } from "react";
-import styles from "../styles/TekiterLinks.module.scss";
-import { timelineFC, useTimeline } from "../utils/timeline";
+import styles from "@/styles/TekiterLinks.module.scss";
+import { timelineFC, useTimeline } from "@/utils/timeline";
 import { IconButton } from "./IconButton";
 
 function GithubIcon() {

@@ -2,9 +2,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { timelineFC, TimelineFCRef, useTimeline } from "../utils/timeline";
-import styles from "../styles/Profile.module.scss";
-import * as profile from "../data/profile";
+import { timelineFC, TimelineFCRef, useTimeline } from "@/utils/timeline";
+import styles from "@/styles/Profile.module.scss";
+import * as profile from "@/data/profile";
 
 const ProfilePic = (props: { className?: string }) => {
   return (
@@ -61,26 +61,12 @@ export const WhoAmISection = timelineFC((_, ref) => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=300%",
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.1,
+        // end: "+=300%",
+        // pin: true,
+        // pinSpacing: true,
+        // scrub: 0.1,
       },
     });
-
-    // const entertl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: sectionRef.current,
-    //     start: "top bottom",
-    //     end: "+=100%",
-    //     scrub: 0.1,
-    //   },
-    // });
-    // entertl.set(titleRef.current, { text: "" });
-    // entertl.to(titleRef.current, {
-    //   text: "Profile",
-    // });
-    // entertl.add(profileCardRef.current.timeline(), "<");
 
     const sectionTitleAni = gsap.fromTo(
       titleRef.current,
@@ -98,16 +84,19 @@ export const WhoAmISection = timelineFC((_, ref) => {
     );
     const sectionProfileCardAni = gsap.fromTo(
       profileCardRef.current.ref,
-      { autoAlpha: 0 },
+      { autoAlpha: 0, y: "+=50" },
       {
         autoAlpha: 1,
+        y: "-=50",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "+=100%",
-          scrub: 0.1,
+          trigger: profileCardRef.current.ref,
+          start: "top bottom-=20%",
+          // markers: true,
+          toggleActions: "restart none none reverse",
         },
-        ease: "power3.in",
+
+        duration: 0.5,
+        ease: "power3.out",
       }
     );
 
