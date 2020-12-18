@@ -91,7 +91,7 @@ export const WhoAmISection = timelineFC((_, ref) => {
         scrollTrigger: {
           trigger: profileCardRef.current.ref,
           start: "top bottom-=20%",
-          markers: true,
+          // markers: true,
           toggleActions: "restart none none reverse",
         },
 
