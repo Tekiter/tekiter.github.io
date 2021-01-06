@@ -28,7 +28,10 @@ export const loveThingList: loveThing[] = [
     name: "Typescript",
   },
   {
-    name: "Leaning",
+    name: "Learning",
+  },
+  {
+    name: "Node.js",
   },
   {
     name: "React",
@@ -56,5 +59,14 @@ export const loveThingList: loveThing[] = [
   },
   {
     name: "Algorithm",
+  },
+  {
+    name: "Semantic UI",
+  },
+  {
+    name: "Github",
+  },
+  {
+    name: "Storybook",
   },
 ];
