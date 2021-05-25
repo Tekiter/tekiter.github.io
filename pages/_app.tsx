@@ -1,12 +1,17 @@
 import type { AppProps } from "next/app";
-import "@/styles/globals.scss";
 
 import { initGSAP } from "@/utils/init";
+import { GlobalStyle } from "@/styles/global";
 
 initGSAP();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;

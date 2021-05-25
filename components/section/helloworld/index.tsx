@@ -1,19 +1,24 @@
 import styled from "styled-components";
 import { profile } from "@/data";
 
-const SuperTitle = styled.h1`
-  font-size: 3em;
-`;
+const SectionBox = styled.div`
+  margin-left: auto;
+  width: fit-content;
+  padding-top: 10%;
+  padding-right: 5em;
+  height: 100vh;
 
-const SubTitle = styled.h3`
-  font-size: 1.1em;
+  background-color: var(--primary);
 `;
 
 const TitleBox = styled.div``;
 
-const SectionBox = styled.div`
-  margin-top: 3em;
-  margin-left: 2em;
+const SuperTitle = styled.h1`
+  font-size: 8rem;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 1.05rem;
 `;
 
 function HelloworldSection() {
@@ -21,6 +26,7 @@ function HelloworldSection() {
     <SectionBox>
       <TitleBox>
         <SuperTitle>{profile.name}</SuperTitle>
+        <SubTitle>{profile.realNameEn}</SubTitle>
         <SubTitle>{profile.realName}</SubTitle>
       </TitleBox>
     </SectionBox>
