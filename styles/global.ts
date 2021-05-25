@@ -1,11 +1,20 @@
 import { createGlobalStyle, css } from "styled-components";
 import { resetCSS } from "./utils/reset";
 
-const color = Object.freeze({
+export const color = Object.freeze({
+  // This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
   mainBrand: "#7d8bb5",
+
+  // Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette.
   lightAccent: "#5f7996",
+
+  // Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
   darkAccent: "#8e5666",
+
+  // Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
   lightShade: "#e6e7e3",
+
+  // Use as the text color for dark-on-light designs, or as the background for inverted designs.
   darkShade: "#23295c",
 
   primary: "#7d8bb5",
@@ -42,6 +51,10 @@ const textSizing = css`
 
 export const GlobalStyle = createGlobalStyle`
   ${resetCSS}
+
+  * {
+    box-sizing: border-box;
+  }
 
   html {
     font-family: "Archivo", "Nanum Gothic", -apple-system, BlinkMacSystemFont,
