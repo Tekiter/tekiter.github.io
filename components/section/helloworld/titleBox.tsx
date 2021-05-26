@@ -18,11 +18,15 @@ const SuperTitle = styled.h1`
 const SubTitle = styled.h3`
   font-size: 2rem;
   margin-right: 0.6em;
+
+  :not(:last-child) {
+    margin-bottom: 0.15em;
+  }
 `;
 
 const TitleGroup = styled.div`
   margin-right: 1rem;
-  padding: 1rem 1.3rem 1.5rem 1.3rem;
+  padding: 1rem 1.3rem 1.3rem 1.3rem;
 `;
 
 const Vline = styled.span`

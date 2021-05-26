@@ -1,34 +1,27 @@
 import styled from "styled-components";
-import { profile } from "@/data";
+import { TitleBox } from "./titleBox";
+import { LoveThings } from "./loveThings";
 
 const SectionBox = styled.div`
-  margin-left: auto;
-  width: fit-content;
-  padding-top: 10%;
-  padding-right: 5em;
   height: 100vh;
+  padding: 10vh 5em 5vh 5em;
 
-  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-const TitleBox = styled.div``;
-
-const SuperTitle = styled.h1`
-  font-size: 8rem;
-`;
-
-const SubTitle = styled.h3`
-  font-size: 1.05rem;
-`;
+const LinkBox = styled.div``;
 
 function HelloworldSection() {
   return (
     <SectionBox>
-      <TitleBox>
-        <SuperTitle>{profile.name}</SuperTitle>
-        <SubTitle>{profile.realNameEn}</SubTitle>
-        <SubTitle>{profile.realName}</SubTitle>
-      </TitleBox>
+      <div>
+        <TitleBox />
+      </div>
+      <LinkBox>
+        <LoveThings />
+      </LinkBox>
     </SectionBox>
   );
 }
