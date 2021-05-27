@@ -1,6 +1,12 @@
 import Head from "next/head";
 
 import { HelloworldSection } from "@/components/section/helloworld";
+import styled from "styled-components";
+
+const SplitBox = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+`;
 
 export default function Home() {
   return (
@@ -11,7 +17,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <HelloworldSection />
+        <SplitBox>
+          <HelloworldSection />
+        </SplitBox>
       </main>
     </div>
   );

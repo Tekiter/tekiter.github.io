@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Box = styled.div`
   display: flex;
-  margin-left: auto;
   width: fit-content;
 
   text-align: right;
@@ -34,7 +33,7 @@ const Vline = styled.span`
   background-color: ${color.darkShade};
 `;
 
-export function TitleBox() {
+export function NameTitle() {
   return (
     <Box>
       <TitleGroup>

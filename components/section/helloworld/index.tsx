@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { TitleBox } from "./titleBox";
+import { NameTitle } from "./titleBox";
 import { LoveThings } from "./loveThings";
+import { Links } from "./links";
 
 const SectionBox = styled.div`
   height: 100vh;
@@ -9,19 +10,35 @@ const SectionBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  text-align: right;
+
+  & .mt-3 {
+    margin-top: 3em;
+  }
 `;
 
-const LinkBox = styled.div``;
+const TitleBox = styled.div`
+  text-align: right;
+`;
+
+const Spacer = styled.div<{ height: string }>`
+  height: ${(p) => p.height};
+`;
 
 function HelloworldSection() {
   return (
     <SectionBox>
+      <TitleBox>
+        <div>
+          <NameTitle />
+        </div>
+      </TitleBox>
       <div>
-        <TitleBox />
-      </div>
-      <LinkBox>
         <LoveThings />
-      </LinkBox>
+        <Spacer height="4em" />
+        <Links />
+      </div>
     </SectionBox>
   );
 }
