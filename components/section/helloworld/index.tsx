@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NameTitle } from "./titleBox";
 import { LoveThings } from "./loveThings";
 import { Links } from "./links";
+import { Spacer } from "@/components/utils";
 
 const SectionBox = styled.div`
   height: 100vh;
@@ -22,10 +23,6 @@ const TitleBox = styled.div`
   text-align: right;
 `;
 
-const Spacer = styled.div<{ height: string }>`
-  height: ${(p) => p.height};
-`;
-
 function HelloworldSection() {
   return (
     <SectionBox>
@@ -36,7 +33,7 @@ function HelloworldSection() {
       </TitleBox>
       <div>
         <LoveThings />
-        <Spacer height="4em" />
+        <Spacer size="4em" />
         <Links />
       </div>
     </SectionBox>

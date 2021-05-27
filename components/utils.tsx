@@ -1,4 +1,5 @@
 import { CSSProperties, forwardRef } from "react";
+import styled from "styled-components";
 
 export interface SpacerProps {
   direction?: "horizontal" | "vertical";

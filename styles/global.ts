@@ -27,6 +27,7 @@ export const color = Object.freeze({
 const textSizing = css`
   p {
     font-size: 1em;
+    line-height: 1.3em;
   }
 
   h1 {
