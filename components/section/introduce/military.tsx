@@ -31,6 +31,8 @@ const MilProgress = styled(MilProgressBase)`
 
 const MilitaryCardBox = styled.div`
   margin-top: 0.7em;
+  max-width: 30vw;
+
   & div:first-child {
     display: flex;
     justify-content: space-between;
