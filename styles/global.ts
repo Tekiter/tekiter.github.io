@@ -63,6 +63,7 @@ export const GlobalStyle = createGlobalStyle`
     Helvetica Neue, sans-serif;
 
     background-color: ${color.lightShade};
+    color: ${color.darkShade};
     font-size: 100%;
   }
 

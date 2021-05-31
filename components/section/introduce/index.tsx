@@ -6,7 +6,7 @@ import { MilitaryCard } from "./military";
 import { UnivCard } from "./univ";
 
 const IntroBox = styled.div`
-  margin: 0 3em;
+  margin: 0 3rem;
   color: ${color.darkShade};
 `;
 
