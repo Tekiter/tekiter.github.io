@@ -4,6 +4,7 @@ import { HelloworldSection } from "@/components/section/helloworld";
 import styled from "styled-components";
 import { IntroduceSection } from "@/components/section/introduce";
 import { Spacer } from "@/components/utils";
+import { ProjectSection } from "@/components/section/project";
 
 const SplitBox = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ const SplitBox = styled.div`
   & > :last-child {
     flex-grow: 1;
   }
+`;
+
+const FixedSection = styled.div`
+  position: fixed;
 `;
 
 export default function Home() {
@@ -24,10 +29,13 @@ export default function Home() {
 
       <main>
         <SplitBox>
-          <HelloworldSection />
+          <FixedSection>
+            <HelloworldSection />
+          </FixedSection>
           <div>
             <Spacer size="80vh" />
             <IntroduceSection />
+            <ProjectSection />
           </div>
         </SplitBox>
       </main>
