@@ -16,7 +16,7 @@ export function IntroduceSection() {
       <Title>Tekiter</Title>
       <div>
         <UnivCard />
-        <MilitaryCard></MilitaryCard>
+        {/* <MilitaryCard></MilitaryCard> */}
       </div>
     </IntroBox>
   );
