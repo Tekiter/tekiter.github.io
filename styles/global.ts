@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import { resetCSS } from "./utils/reset";
+import reset from "styled-reset";
 
 export const color = Object.freeze({
   // This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
@@ -51,7 +51,7 @@ const textSizing = css`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-  ${resetCSS}
+  ${reset}
 
   * {
     box-sizing: border-box;
