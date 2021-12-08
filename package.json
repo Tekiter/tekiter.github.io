@@ -10,6 +10,9 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@next/mdx": "^12.0.7",
     "clsx": "^1.1.1",
     "date-fns": "^2.21.3",
     "gsap": "^3.5.1",
@@ -27,6 +30,7 @@
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@types/mdx": "^2.0.1",
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.9",

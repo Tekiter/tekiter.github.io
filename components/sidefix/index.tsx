@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NameTitle } from "./titleBox";
 import { LoveThings } from "./loveThings";
 import { Links } from "./links";
-import { Spacer } from "@/components/utils";
+import { Spacer } from "@/components/common/utils";
 
 const SectionBox = styled.div`
   height: 100vh;

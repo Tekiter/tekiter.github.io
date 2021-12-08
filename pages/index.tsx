@@ -1,10 +1,9 @@
 import Head from "next/head";
 
-import { HelloworldSection } from "@/components/section/helloworld";
+import { HelloworldSection } from "@/components/sidefix";
 import styled from "styled-components";
-import { IntroduceSection } from "@/components/section/introduce";
-import { Spacer } from "@/components/utils";
-import { ProjectSection } from "@/components/section/project";
+import { Spacer } from "@/components/common/utils";
+import { Content } from "@/components/content";
 
 const SplitBox = styled.div`
   display: flex;
@@ -27,18 +26,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <SplitBox>
-          <FixedSection>
-            <HelloworldSection />
-          </FixedSection>
-          <div>
-            <Spacer size="80vh" />
-            <IntroduceSection />
-            <ProjectSection />
-          </div>
-        </SplitBox>
-      </main>
+      <SplitBox>
+        <FixedSection>
+          <HelloworldSection />
+        </FixedSection>
+        <div>
+          <Spacer size="80vh" />
+          <Content />
+        </div>
+      </SplitBox>
     </div>
   );
 }
