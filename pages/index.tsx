@@ -35,4 +35,5 @@ const ContentSlot = styled.div`
   padding-top: 80vh;
 
   width: 40vw;
+  padding-left: 2rem;
 `;
