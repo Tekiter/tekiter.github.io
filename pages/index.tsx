@@ -2,21 +2,7 @@ import Head from "next/head";
 
 import { HelloworldSection } from "@/components/sidefix";
 import styled from "styled-components";
-import { Spacer } from "@/components/common/utils";
 import { Content } from "@/components/content";
-
-const SplitBox = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-
-  & > :last-child {
-    flex-grow: 1;
-  }
-`;
-
-const FixedSection = styled.div`
-  position: fixed;
-`;
 
 export default function Home() {
   return (
@@ -26,15 +12,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SplitBox>
-        <FixedSection>
-          <HelloworldSection />
-        </FixedSection>
-        <div>
-          <Spacer size="80vh" />
-          <Content />
-        </div>
-      </SplitBox>
+      <ContentSlot>
+        <Content />
+      </ContentSlot>
+
+      <SideSlot>
+        <HelloworldSection />
+      </SideSlot>
     </div>
   );
 }
+
+const SideSlot = styled.div`
+  & > * {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+`;
+
+const ContentSlot = styled.div`
+  padding-top: 80vh;
+
+  width: 40vw;
+`;
