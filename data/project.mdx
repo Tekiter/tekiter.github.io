@@ -1,6 +1,21 @@
+export function TitleBox({ children }) {
+  return (
+    <Box grow="unset" width="20rem">
+      {children}
+    </Box>
+  );
+}
+
+export function DescriptionBox({ children }) {
+  return <Box grow="1">{children}</Box>;
+}
+
 # Project
 
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## 당뻔
 
@@ -8,7 +23,28 @@
 
 **29th WE SOPT SOPKATHON 대상**
 
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- 번개 모임 매칭을 도와주는 웹 서비스
+- 기획, 디자인, 프론트엔드, 서버 파트로 나뉘어 진행
+- 프론트엔드 파트의 리더를 담당
+- 파트간 원활한 소통으로 시간 안에 성공적으로 완성
+- 상태 담당 컴포넌트와 레이아웃 담당 컴포넌트를 따로 만들어 관심사를 분리
+
+### Tech Stack
+
+TypeScript, React, Styled-Components
+
+</DescriptionBox>
+</FlexBox>
+
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## [LogicKingElectric](https://github.com/Tekiter/LogicKingElectric)
 
@@ -16,33 +52,145 @@
 
 **2021 EDACOM 우수상**
 
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- 재생 에너지 발전 예측량 정보를 관리하는 서비스
+- API 서버 전체와, 프론트엔드의 API 호출 연결을 담당
+- 모노레포 구조 프로젝트
+- 같은 API 타입을 프론트엔드와 백엔드가 공유하게 설계, 타입 정의가 API 정의가 되도록 함
+- 프론트엔드에서 API 호출 커스텀 훅으로 추상화
+- 의존성 분리를 적극적으로 사용
+- 저수준인 데이터 접근과 컨트롤러 로직을 의존성 주입
+- Jest 기반 테스트 작성
+
+### **Tech Stack**
+
+TypeScript, Node.js, Express, React, Next.js, Recoil, Jest
+
+</DescriptionBox>
+</FlexBox>
+
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## [ShieldsCraft](https://github.com/Tekiter/shields-craft)
 
 2020.12 ~ 2021.01
 
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- [Shields.io](http://Shields.io) 뱃지의 주소를 생성해주는 웹 앱
+- Next.js로 정적 사이트 생성
+- Storybook을 활용한 컴포넌트별 개발
+- Lazy Loading 을 적극 활용해 초기 로딩 속도 최적화
+
+### Tech Stack
+
+TypeScript, React, Next.js, Storybook, Github Pages, Github Actions
+
+</DescriptionBox>
+</FlexBox>
+
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## [출타관리체계](https://github.com/osamhack2020/WEB_LeaveOutSystem_Div-7)
 
 2020.09 ~ 2020.10
 
-**2020 군 장병 온라인 해커톤
-출품작**
+**2020 군 장병 온라인 해커톤 출품작**
+
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- 군 장병 출타 정보를 관리하는 서비스
+- API 서버 전체와, 대부분의 프론트엔드 담당
+- 서버의 DB 접근 로직을 추상화
+- 프론트엔드의 API 호출을 추상화
+- 페이지를 컴포넌트 단위로 분리해 개발 시도
+
+### What I Learned
+
+- 의존성의 방향에 대해 고민하게 됨
+
+### Tech Stack
+
+JavaScript, Node.js, Express, MongoDB, Vue2
+
+</DescriptionBox>
+</FlexBox>
 
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## [EZSET](https://github.com/Tekiter/EZSET)
 
 2019.11 ~ 2020.06
 
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- 소규모 대학교 동아리를 위한 그룹웨어
+- 유저관리, 인증 등의 코어 기능과 FileBox 기능 담당
+- 자동화된 API 문서 생성
+
+### What I Learned
+
+- 강한 의존성으로 리팩터링이 난감한 상황 도래
+- 저수준/고수준 로직간 분리의 중요성을 인식
+- 자동화된 테스트 작성의 필요성을 깨달음
+- 컴포넌트 분리의 필요성을 실감하게 됨
+
+### Tech Stack
+
+JavaScript, Node.js, Express, MongoDB, Vue2
+
+</DescriptionBox>
+</FlexBox>
+
 ---
+
+<FlexBox>
+<TitleBox>
 
 ## Hyodor
 
 2019.08
 
-**2019년 제 6회
-소프트웨어 개발보안 경진대회
-한국인터넷진흥원장상**
+**2019년 제 6회 소프트웨어 개발보안 경진대회 한국인터넷진흥원장상**
+
+</TitleBox>
+<DescriptionBox>
+
+### Description
+
+- 효도 정보를 공유하는 커뮤니티 서비스
+- API 서버 전체 담당
+- 프론트엔드 대시보드, 게시판 페이지 담당
+- Flask를 사용해 REST API 서버 구축
+- ORM을 활용해 PostgreSQL DB에 접근
+
+### Tech Stack
+
+Python, Flask, PostgreSQL, JavaScript, Vue2
+
+</DescriptionBox>
+</FlexBox>
+
+---

@@ -32,8 +32,8 @@ const SideSlot = styled.div`
 `;
 
 const ContentSlot = styled.div`
-  padding-top: 80vh;
+  padding-top: 70vh;
 
-  width: 40vw;
+  width: 50vw;
   padding-left: 2rem;
 `;

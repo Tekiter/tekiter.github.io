@@ -22,7 +22,6 @@ const TitleBase = (props: TitleProps) => {
 };
 
 export const Title = styled(TitleBase)`
-  font-size: 1.2rem;
   font-weight: 600;
   width: fit-content;
   color: ${color.darkShade};
